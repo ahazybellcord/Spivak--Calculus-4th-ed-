@@ -1,0 +1,414 @@
+\documentclass[12pt]{article}
+%\topmargin=-0.3in
+%\leftmargin=0.5in
+%\rightmargin=0.5in
+\headsep=0.25in
+\parindent=0px
+\setlength{\parskip}{0.5em}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{enumitem}
+
+
+\newcommand{\qed}{\blacksquare}
+\newcommand{\then}{\Rightarrow}
+\renewcommand{\labelenumii}{(\roman{enumii})}
+   
+
+\begin{document}
+\textbf{PROBLEM SOLUTIONS}\\
+
+\underline{Chapter 1: Basic Properties of Numbers}
+\begin{enumerate}
+
+\item Prove the following:
+\begin{enumerate}
+% Problem 1
+\item If $ax = a$ for some number $a \neq 0$, then $x = 1$.
+
+\underline{Proof}: If $a \neq 0$ then there exists $a^{-1}$ such that 
+\begin{align} 
+a \cdot a^{-1} &= a^{-1} \cdot a = 1 \tag{P7}
+\end{align}
+Then:
+\begin{align}
+a^{-1}\cdot (a\cdot x) &= (a^{-1}\cdot a) \cdot x \tag{P5}\\
+			     &= 1 \cdot x \tag{P7}\\
+			     &= x \tag{P6}
+\end{align}
+and
+\begin{align}
+a^{-1}\cdot a &= 1 \tag{P7}
+\end{align}
+Then $ax = a \Rightarrow x = 1$ $\qed$
+
+\item $x^2 - y^2 = (x - y)(x + y).$
+\begin{align}
+\text{\underline{Proof}: } (x - y)(x + y) &= x \cdot (x + y) + (-y) \cdot (x + y) \tag{P9}\\
+		    &= x \cdot x + x \cdot y + (-y) \cdot x + (-y) \cdot y \tag{P9}\\
+		    &= x \cdot x + x \cdot y + x \cdot (-y) + (-y) \cdot y \tag{P4}\\
+		    &= x \cdot x + x \cdot (y + (-y)) + (-y) \cdot y \tag{P9}\\
+		    &= x \cdot x + x \cdot 0 + (-y) \cdot y \tag{P3}\\
+		    &= x \cdot x + (-y) \cdot y \tag{P9}\\
+		    &= x \cdot x + -(y \cdot y) \tag{P5}\\
+		    &= x^2 - y^2 \hspace{.1cm} \blacksquare \notag 	    
+\end{align}
+
+\item If $x^2 = y^2$, then $x = y$ or $x = -y$.
+
+\underline{Proof}: Since $x^2 = y^2$ we have
+\begin{align}
+x^2 - y^2 &= y^2 - y^2 \notag \\
+	       &= 0 \tag{P3}
+\end{align}
+and $x^2 - y^2 = (x - y)(x + y)$ by 1(ii). Therefore
+\begin{align}
+(x - y)(x + y) &= 0 \notag
+\end{align}
+Then if $x \neq -y$
+\begin{align}
+((x - y) (x + y)) \cdot (x + y)^{-1} &= (x - y) \cdot ((x + y) (x + y)^{-1}) \tag{P5}\\
+						         &= (x - y) \cdot 1 \tag{P7}\\
+					                  &= x - y \tag{P6}
+\end{align}
+and since
+\begin{align}
+0 \cdot (x + y)^{-1} &= 0 \tag{P9}
+\end{align}
+we have $x - y = 0 \Rightarrow x = y$ (P3). $\blacksquare$ \\
+If we start with $x \neq y$ a similar proof will show that $x = -y$.
+
+\item $x^3 - y^3 = (x - y)(x^2 + xy + y^2)$.
+\begin{align}
+\text{\underline{Proof}: } (x - y)(x^2 + xy + y^2) &= (x - y) \cdot x^2 + (x - y) \cdot xy + (x - y) \cdot y^2  \tag{P9}\\
+									&= x \cdot x^2 - y \cdot x^2 + x \cdot xy - y \cdot xy + x \cdot y^2 - y \cdot y^2 \tag{P9}\\
+									&= x^3 - yx^2 + x^2y + yxy + xy^2 - y^3 \notag \\
+									&= x^3 - x^2y + x^2y + xy^2 - xy^2 - y^3 \tag{P5}\\
+									&= x^3 - y^3 \tag{P3}
+\end{align}
+
+\item $x^n - y^n = (x - y)(x^{n-1} + x^{n-2}y + \dots + xy^{n-2} + y^{n-1})$.
+
+$\text{\underline{Proof}: }(x - y)(x^{n-1} + x^{n-2}y + \dots + xy^{n-2} + y^{n-1}) = $
+\begin{multline*}
+= x \cdot x^{n-1} + x \cdot x^{n-2}y + \dots + x \cdot xy^{n-2} + x \cdot y^{n-1} \\- y \cdot x^{n-1} - y \cdot x^{n-2}y - \dots - y \cdot xy^{n-2} - y \cdot y^{n-1}
+\end{multline*}
+\begin{multline*}
+= x^n + x^{n-1}y + \dots + x^2y^{n-2} + xy^{n-1} \\- x^{n-1} \cdot y - x^{n-2}y \cdot y- \dots - xy^{n-2} \cdot y - y^n \hspace{.2cm} \text{(P5)}
+\end{multline*}
+\begin{multline*}
+= x^n + x^{n-1}y + \dots + x^2y^{n-2} + xy^{n-1} - x^{n-1}y - x^{n-2}y^2- \dots - xy^{n-1} - y^n
+\end{multline*}
+\begin{align*}
+&= x^n + x^{n-1}y - x^{n-1}y + \dots + xy^{n-1} - xy^{n-1} - y^n \tag{P1}\\
+&= x^n + 0 + \dots + 0 - y^n \hspace{.2cm} \tag{P3}\\
+&= x^n - y^n \hspace{.1cm} \blacksquare \tag{P2}\\
+\end{align*}
+							
+\item $x^3 + y^3 = (x + y)(x^2 - xy + y^2)$.
+
+Using the result of 1(iv) with $-y$ in place of $y$, we have
+\begin{align*}
+x^3 - (-y)^3 = x^3 - -y^3 = x^3 + y^3 &= (x - (-y))(x^2 + x(-y) + (-y)^2) \\
+							&= (x + y)(x^2 - xy + y^2) \hspace{.1cm} \blacksquare
+\end{align*}
+\end{enumerate}
+% Problem 2
+\item What is wrong with the following ``proof"? Let $x = y$. Then
+\begin{align*}
+x^2 &= xy,\\
+x^2 - y^2 &= xy - y^2,\\
+(x + y)(x - y) &= y(x - y),\\
+x + y &= y,\\
+2y &= y,\\
+2 &= 1.
+\end{align*}
+\underline{Answer}: Between lines 3 and 4 we perform a division by $x - y$. But since $x = y$, this means we divided by 0, which is undefined.\\
+% Problem 3
+\item Prove the following:
+\begin{enumerate}
+\item $\frac{a}{b}=\frac{ac}{bc}$, if $b,c \neq 0$.
+
+\underline{Proof}: $\frac{a}{b} = a \cdot b^{-1}$ and $\frac{ac}{bc} = ac \cdot (bc)^{-1}$\\ 
+Thus $$ac \cdot (bc)^{-1} \cdot bc = ac$$ and $$a \cdot b^{-1} \cdot bc = a \cdot (b^{-1}b) \cdot c = ac$$ and therefore $$\frac{a}{b}=\frac{ac}{bc} \hspace{.1cm} \blacksquare$$
+
+\item $\frac{a}{b} + \frac{c}{d} =\frac{ad + bc}{bd}$ if $b,d \neq 0$.
+
+\underline{Proof}: Since $b,d \neq 0$ we can multiply each side by $bd$.
+\begin{align*}
+\frac{ad + bc}{bd} \cdot bd &= ((ad + bc) \cdot (bd)^{-1}) \cdot bd\\
+			   &= (ad + bc) \cdot ((bd)^{-1} \cdot bd)\\
+			   &=	 ad + bc\\
+\end{align*}
+and	
+\begin{align*}
+\left(\frac{a}{b} + \frac{c}{d}\right) \cdot bd &= (a \cdot b^{-1} + c \cdot d^{-1}) \cdot bd\\
+			   &=	 ab^{-1} \cdot bd + cd^{-1} \cdot db\\
+			   &=  a(b^{-1}b)d + c(d^{-1}d)b\\
+			   &= ad + cb\\
+			   &= ad + bc
+\end{align*}
+Therefore 	$\frac{a}{b} + \frac{c}{d} =\frac{ad + bc}{bd}$ $\blacksquare$
+
+\item $(ab)^{-1} = a^{-1}b^{-1}$, if $a,b \neq 0$.
+
+\underline{Proof}: Since $a,b \neq 0$ we can multiply both sides by $ba$.
+\begin{align*}
+a^{-1}b^{-1} \cdot ba &= a^{-1}(b^{-1} \cdot b)a\\
+				&= a^{-1} \cdot a\\
+				&= 1
+\end{align*}
+Since 
+\begin{align*}
+(ba)^{-1} \cdot ba = 1 &\Rightarrow a^{-1}b^{-1} \cdot ba = (ba)^{-1} \cdot ba \\
+				 &\Rightarrow a^{-1}b^{-1} = (ba)^{-1}  = (ab)^{-1} \hspace{.1cm} \blacksquare
+\end{align*}
+
+\item $\frac{a}{b} \cdot \frac{c}{d} = \frac{ac}{db}$, if $b,d \neq 0$.
+
+\underline{Proof}:
+$$\frac{a}{b} \cdot \frac{c}{d} = ab^{-1} \cdot cd^{-1} = acd^{-1}b^{-1} = ac(db)^{-1} = \frac{ac}{db} \hspace{.1cm} \blacksquare$$
+
+\item $\frac{a}{b} \diagup \frac{c}{d} = \frac{ad}{bc}$ if $b,c,d \neq 0$.
+
+\underline{Proof}:
+$$ \frac{ad}{bc} \cdot \frac{c}{d} = ad \cdot (bc)^{-1} \cdot cd^{-1} = ad \cdot b^{-1}c^{-1} \cdot cd^{-1} = ab^{-1}cc^{-1}dd^{-1} = ab^{-1} = \frac{a}{b}$$ therefore $$\frac{ad}{bc} = \frac{a}{b} \cdot (cd^{-1})^{-1} = \frac{a}{b} \diagup \frac{c}{d}$$
+
+\item If $b,d \neq 0$, then $\frac{a}{b} = \frac{c}{d}$ if and only if $ad = bc$. Also determine when $\frac{a}{b} = \frac{b}{a}$.
+
+\underline{Proof:}
+\begin{align*} \frac{a}{b} = \frac{c}{d} &\Rightarrow \frac{a}{b} \cdot bd = \frac{c}{d} \cdot bd \\
+						        &\Rightarrow ab^{-1}bd = cd^{-1}db \\
+						        &\Rightarrow ad = cb = bc.
+\end{align*}
+\begin{align*} 
+ad = bc &\Rightarrow ad \cdot d^{-1}b^{-1} = bc \cdot d^{-1}b^{-1} \\
+             &\Rightarrow add^{-1}b^{-1} = cbb^{-1}d^{-1} \\
+             &\Rightarrow ab^{-1} = cd^{-1} \\
+             &\Rightarrow \frac{a}{b} = \frac{c}{d} \hspace{.1cm} \blacksquare
+\end{align*}
+\end{enumerate}
+% Problem 4
+\item Find all numbers $x$ for which
+\begin{enumerate}
+\item $4 - x < 3 - 2x$
+$$4 - x < 3 - 2x \Rightarrow x < -1$$
+Ans: $\{x\in \mathbb{R} : x < -1\}$
+\item $5 - x^2 < 8$
+$$5 - x^2 < 8 \Rightarrow x^2 > -3 $$
+Ans: all $x\in \mathbb{R}$ satisfy this inequality.
+
+\item $5 - x^2 < -2$
+$$ 5 - x^2 < -2 \Rightarrow x^2 > 7 \Rightarrow (x > \sqrt{7}) \text{ OR } (x < -\sqrt{7})$$
+Ans: $\{x\in \mathbb{R} : x > \sqrt{7}\} \cup \{x\in \mathbb{R} : x < -\sqrt{7}\} $
+
+\item $(x - 1)(x - 3) > 0$
+$$ ab > 0 \Rightarrow (a > 0, b > 0) \text{ OR } (a < 0, b < 0)$$
+Case 1: $a > 0, b > 0$:
+$$ x - 1 > 0 \Rightarrow x > 1$$
+$$ x - 3 > 0 \Rightarrow x > 3$$
+$\{x\in \mathbb{R} : x > 1\} \cap \{x\in \mathbb{R} : x > 3\} = \{x\in \mathbb{R} : x > 3\}$.\\
+Case 2: $a < 0, b < 0$:
+$$ x - 1 < 0 \Rightarrow x < 1$$
+$$ x - 3 < 0 \Rightarrow x < 3$$
+Ans: $\{x\in \mathbb{R} : x < 1\} \cap \{x\in \mathbb{R} : x < 3\} = \{x\in \mathbb{R} : x < 1\}$.\\
+Therefore the full answer is: $\{x\in \mathbb{R} : x > 3\} \cup \{x\in \mathbb{R} : x < 1\}$.
+
+\item $x^2 - 2x + 2 > 0$
+$$ x^2 - 2x + 2 = (x - 1)^2 + 1 > 0 \Rightarrow (x - 1)^2 > -1 $$
+If $(x - 1)$ is positive or negative, $(x - 1)^2 > 0 > -1$. \\If it is zero, then clearly $(x - 1)^2 > -1$.\\
+Ans: all $x\in \mathbb{R}$ satisfy this inequality.
+
+\item $x^2 + x + 1 > 2$
+$$ x^2 + x + 1 > 2 \Rightarrow x^2 + x - 1 > 0$$
+Employing the quadratic formula: $$ x > \frac{1 \pm \sqrt{5}}{2}$$
+Ans: $\{x\in \mathbb{R} : x > \frac{1 \pm \sqrt{5}}{2}\}$
+
+\item $x^2 - x + 10 > 16$
+$$x^2 - x + 10 > 16 \Rightarrow x^2 - x - 6 > 0 \Rightarrow (x -3)(x + 2) > 0$$
+Then if $(x - 3) > 0, (x + 2) > 0 \Rightarrow x > 3$.\\ 
+If $(x - 3) < 0, (x + 2) < 0 \Rightarrow x < -2$.\\
+Ans: $\{x\in \mathbb{R} : x > 3\} \cup \{x\in \mathbb{R} : x < -2\}$
+
+\item $x^2 + x + 1 > 0$
+
+Ans: all $x\in \mathbb{R}$.
+
+\item $(x - \pi)(x + 5)(x - 3) > 0$
+
+Either all three terms are positive, else two are negative and one is positive.\\
+Case 1: 
+$(x - \pi) > 0, (x + 5) > 0, (x - 3) > 0$\\
+$x > \pi$ and $x > -5$ and $x > 3 \Rightarrow x > \pi$.\\
+Case 2:
+$(x - \pi) > 0, (x + 5) < 0, (x - 3) < 0$\\
+$x > \pi$ and $x < -5$ and $x < 3 \Rightarrow x = \emptyset$\\
+Case 3:
+$(x - \pi) < 0, (x + 5) > 0, (x - 3) < 0$\\
+$x < \pi$ and $x > -5$ and $x < 3 \Rightarrow x > -5$ and $x < 3$.\\
+Case 4:
+$(x - \pi) < 0, (x + 5) < 0, (x - 3) > 0$\\
+$x < \pi$ and $x < -5$ and $x > 3 \Rightarrow x = \emptyset$.\\
+Ans: $\{x :  x > \pi\} \cup \{x : -5 < x < 3\}$
+
+\item $(x - \sqrt[3]{2})(x - \sqrt{2}) > 0$
+
+Case 1: $(x - \sqrt[3]{2}) > 0, (x - \sqrt{2}) > 0$\\
+$x > \sqrt[3]{2}$ and $x > \sqrt{2} \Rightarrow x > \sqrt{2}$\\
+Case 2: $(x - \sqrt[3]{2}) < 0, (x - \sqrt{2}) < 0$\\
+$x < \sqrt[3]{2}$ and $x < \sqrt{2} \Rightarrow x <  \sqrt[3]{2}$\\
+Ans: $\{x :  x > \sqrt{2}\} \cup \{x : x < \sqrt[3]{2}\}$
+
+\item $2^x < 8$
+$$2^x < 8 \Rightarrow x < \text{log}_2{8} = 3$$
+Ans: $\{x : x < 3\}$
+
+\item $x + 3^x < 4$
+
+Take $x = 1$. Then $$x + 3^x = 1 + 3 = 4 \nless 4.$$\\
+Now take $x > 1$. Then $$x + 3^x > 1 + 3 = 4 \nless 4.$$\\
+Ans: $\{x : x < 1\}$
+
+\item $\frac{1}{x} + \frac{1}{1 - x} > 0$
+$$\frac{1}{x} + \frac{1}{1 - x} > 0 \Rightarrow \frac{1}{x} > -\frac{1}{1 - x} \Rightarrow 1 - x > -x \Rightarrow 1 > 0$$
+Since this is a contradiction, there does not exist an $x$ such that $\frac{1}{x} + \frac{1}{1 - x} > 0$.\\
+Ans: $\emptyset$
+
+\item $\frac{x - 1}{x + 1} > 0$
+
+Due to the presence of $x + 1$ in the denominator, we are limited to $x \neq -1$. This permits us to multiply both sides of the inequality by $x + 1$.\\
+$$\frac{x - 1}{x + 1} > 0 \Rightarrow x - 1 > 0 \Rightarrow x > 1$$
+Ans: $\{x : x > 1\}$
+\end{enumerate}
+% Problem 5
+\item Prove the following:
+\begin{enumerate}
+\item If $a < b$ and $c < d$, then $a + c < b + d$.
+$$ a < b, c < d \Rightarrow 0 < b - a, 0 < d - c \Rightarrow 0 < (b - a) + (d - c) \Rightarrow a + c < b + d $$
+
+\item If $a < b$, then $-b< -a$.
+$$ a < b \Rightarrow 0 < b - a \Rightarrow -b < -a$$
+
+\item If $a < b$ and $c > d$, then $a - c < b - d$.
+$$ a < b, c > d \Rightarrow 0 < b - a, 0 < c - d \Rightarrow 0 < (b - a) + (c - d) \Rightarrow a - c < b - d$$
+
+\item If $a < b$ and $c > 0$, then $ac < bc$.
+$$ a < b \Rightarrow 0 < b - a \Rightarrow 0 < c(b - a) = cb - ca = bc - ac \Rightarrow ac < bc$$
+
+\item If $a < b$ and $c < 0$, then $ac > bc$.
+$$ c < 0 \Rightarrow -c > 0$$
+$$ a < b \Rightarrow 0 < b - a \Rightarrow 0 < -c(b - a) \Rightarrow 0 < -cb + ca = -bc + ac \Rightarrow bc < ac$$
+
+\item If $a > 1$, then $a^2 > a$.
+$$ a > 1 \Rightarrow a > 0$$
+$$ a > 1 \Rightarrow a - 1 > 0 \Rightarrow a(a - 1) = a^2 - a > 0 \Rightarrow a^2 > a$$
+
+\item If $0 < a < 1$, then $a^2 < a$.
+
+$$0 < a < 1 \Rightarrow a > 0, a - 1 < 0 \Rightarrow a(a-1) = a^2 - a < 0 \Rightarrow a^2 < a$$
+
+\item If $0 \leq a < b$ and $0 \leq c < d$, then $ac < bd$.\\
+
+If $a = 0$ or $c = 0$ then $ac = 0$.\\ 
+Since $b > a = 0$ and $d > c = 0$, $bd > 0 = ac$.\\
+Otherwise, we have $0 < a < b$ and $0 < c < d$.\\
+Then $$0 < a < b, c > 0 \Rightarrow 0 < ac < bc$$ and $$0 < c < d, b > 0 \Rightarrow 0 < bc < bd$$
+which gives us $$0 < ac < bc < bd \Rightarrow ac < bd$$
+
+\item If $0 \leq a < b$, then $a^2 < b^2$.
+
+If $a = 0$ then $$b > 0 \Rightarrow b^2 > 0 = a^2.$$\\
+Otherwise $$0 < a < b \Rightarrow 0 < a^2 < ab \text{ and } 0 < ab < b^2 \Rightarrow 0 < a^2 < ab < b^2 \Rightarrow a^2 < b^2.$$
+(Or we could just apply 5(viii) with $c = a$ and $d = b$.)\\
+
+\item If $a,b \geq 0$ and $a^2 < b^2$, then $a < b$.
+
+If $a = 0$ and $a^2 = 0 < b^2$ then $0 \cdot b^{-1} < b^2 \cdot b^{-1} \Rightarrow 0 < b$.\\
+Otherwise $a > 0$ and $b > 0$. Then $$a^2 < b^2 \Rightarrow 0 < b^2 - a^2 = (b - a)(b + a).$$
+Case 1: $b - a > 0, b + a > 0$.
+$$b - a > 0 \Rightarrow b > a \text{ and } b + a > 0 \Rightarrow b > -a.$$ Since $a > 0 \Rightarrow a > -a \Rightarrow b > a $.\\
+Case 2: $b - a < 0, b + a < 0$
+$$b - a < 0 \Rightarrow b < a \text{ and } b + a < 0 \Rightarrow b < -a.$$
+But since $a > 0 \Rightarrow -a < 0 \Rightarrow b < 0$. This is a contradiction. Case 2 never occurs.
+\end{enumerate}
+% Problem 6
+\item \hfill
+\begin{enumerate}[label=(\alph*)]
+\item Prove that if $0 \leq x < y$, then $x^n < y^n$, $n = 1, 2, 3, \dots$.
+
+\underline{Proof}: We can apply theorem 5(viii) any number of times with $a = c = x$ and $b = d = y$.
+
+\item Prove that if $x < y$ and $n$ is odd, then $x^n < y^n$.
+
+When $n=1$, $x^1 < y^1 \iff x < y$ which is true by hypothesis. Assume the theorem holds for all odd $n$ up to some $k$. That is, $x^n < y^n$ for $n=1,3,5\dots, k$. Then $x^{k+2}<y^{k+2} \iff x^{2}x^{k}<y^{2}y^{k} \iff x^k < (y/x)^2 y^k$. Since $x<y$, we have $y/x > 1$ and so from 5(vi) we know $(y/x)^2 >y/x>1$ and so $y^k < (y/x)^2 y^k$. Since we assume from the inductive step that $x^k < y^k$, we must have $x^k < y^k < (y/x)^2 y^k$.
+
+\item Prove that if $x^n = y^n$ and $n$ is odd, then $x = y$.
+
+Proof by contradiction. Assume $x^n = y^n$ for $n$ odd but $x\neq y$. Take $x<y$. From 6(b), we have that $x^n < y^n$. Similarly, for $y<x$ we have $y^n < x^n$. By contradiction, we must have that $x=y$.
+
+\item Prove that if $x^n = y^n$ and $n$ is even, then $x = y$ or $x = -y$.
+
+Proof by contradiction. Assume $x^n = y^n$ for $n$ even but $x\neq y$ and $x\neq -y$. Then necessarily $x<y$ or $x>y$. Take $x<y$.
+
+Case 1: If $0\leq x<y$ then we have from 6(a) that $x^n<y^n$ for any $n$, a contradiction.
+
+Case 2: Assume $x<0,y\geq 0$. Then we have $0<-x\leq y$ or $0\leq y < -x$. Then from 6(a), either $(-x)^n < y^n$ or $y^n < (-x)^n$, respectively. In either case, we have $(-x)^n\neq y^n$. Since $n$ is even, we can write $n=2k$ for some integer $k$. Then $(-x)^n=((-x)^2)^k=(x^2)^k=x^{2k}=x^n$. Then we find that in either case $x^n\neq y^n$ which contradicts our assumption.
+
+Case 3: Assume $x,y\leq 0$. Then $0\leq -y<-x$. From 6(a) $(-y)^n < (-x)^n$ but since $(-y)^n=y^n$ and $(-x)^n=x^n$ from the argument above, we find that $y^n < x^n$, a contradiction.
+
+Case 4: Assuming $x>0, y\leq 0$ is a contradiction of $x<y$.
+
+The proof for $x>y$ follows from symmetry arguments.
+\end{enumerate}
+% Problem 7
+\item Prove that if $0 < a < b$, then $$a < \sqrt{ab} < \frac{a+b}{2} < b.$$
+
+\underline{Proof}: $$0 < a < b \Rightarrow 0 < a^2 < ab$$
+$$0 < a < b \Rightarrow 0 < ab < b^2$$
+$$0 < a^2 < ab < b^2 \Rightarrow 0 < a < \sqrt{ab} < b$$
+$$\left(\frac{a + b}{2}\right)^2 = \frac{a^2 + 2ab + b^2}{2} = \frac{a^2}{2} + ab + \frac{b^2}{2} > ab \Rightarrow \frac{a + b}{2} > \sqrt{ab}$$
+$$a - b < 0 \Rightarrow \frac{a - b}{2} < 0 \Rightarrow \frac{a - b}{2} + b < b \Rightarrow \frac{a - b}{2} + b = \frac{a + b}{2} < b$$
+
+% Problem 8
+\item Although the basic properties of inequalities were stated in terms of the collection $P$ of all positive numbers, and $<$ was defined in terms of $P$, this procedure can be reversed. Suppose that P10-P12 are replaced by
+\begin{enumerate}[label=(P'\arabic*)]
+\setcounter{enumii}{10}
+\item For any numbers $a$ and $b$ one, and only one, of the following holds:
+\begin{enumerate}[label=(\roman*)]
+\item $a=b$,
+\item $a<b$,
+\item $b<a$.
+\end{enumerate}
+\item For any numbers $a$, $b$, and $c$, if $a<b$ and $b<c$, then $a<c$.
+\item For any numbers $a$, $b$, and $c$, if $a<b$, then $a+c<b+c$.
+\item For any numbers $a$, $b$, and $c$, if $a<b$ and $0<c$, then $ac<bc$.
+\end{enumerate}
+Show that P10-P12 can then be deduced as theorems.
+
+(P10) Applying P'10 with $b=0$ we have that for any number $a$, either $a=0$, $a<0$ or $0<a$. Since $P$ is defined to be the collection of all numbers $a>0$, this is equivalent to the statement of P10.
+
+(P11) Let $0<x,y$ (since using $a$ and $b$ would amount to an abusive confusion of variables in different scopes). Applying P'12 with $a=0, b=x, c=y$, we have:
+\begin{align}
+		0 + y &< x + y \tag{P'12}\\
+             y &< x + y \tag{P2}\\
+		0 &< x + y \tag{P'11}
+\end{align}
+The last step follows from the fact that $0<y$. So we have shown that for numbers $0<x$, $0<y$, we have that $0<x+y$, an equivalent statement to (P11).
+
+(P12) Let $0<x,y$. Applying P'13 with $a=0, b=x, c=y$, we have:
+\begin{align}
+		0\cdot y &< x\cdot y \tag{P'13}\\
+             (x + (-x)) \cdot y &< x\cdot y \tag{P3}\\
+		y \cdot (x + (-x)) &< x\cdot y \tag{P4}\\
+		y\cdot x + y\cdot (-x) &< x\cdot y \tag{P9}\\
+		y\cdot x + (-y\cdot x) &< x\cdot y \tag{P8}\\
+		0 &< x\cdot y \tag{P3}\\
+\end{align}
+Therefore we've shown that when $0<x$ and $0<y$, we have $0<x\cdot y$, an equivalent statement to (P12).
+
+
+\end{enumerate}
+
+\end{document}
