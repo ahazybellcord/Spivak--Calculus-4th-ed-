@@ -14,6 +14,7 @@
 
 \newcommand{\qed}{\blacksquare}
 \newcommand{\then}{\Rightarrow}
+\newcommand{\abs}[1]{|#1|}
 \renewcommand{\labelenumii}{(\roman{enumii})}
    
 
@@ -408,7 +409,98 @@ The last step follows from the fact that $0<y$. So we have shown that for number
 \end{align}
 Therefore we've shown that when $0<x$ and $0<y$, we have $0<x\cdot y$, an equivalent statement to (P12).
 
+% Problem 9
+\item Express each of the following with at least one less pair of absolute value signs.
+\begin{enumerate}[label=(\roman*)]
+\item $\abs{\sqrt{2}+\sqrt{3}-\sqrt{5}+\sqrt{7}}$
+
+Since $7>5$ and $f(x)=\sqrt{x}$ is monotonically increasing from $x>0$, $\sqrt{7}>\sqrt{5} \then \sqrt{7}-\sqrt{5} > 0$. The total sum is positive so we can drop the absolute value signs and write $\abs{\sqrt{2}+\sqrt{3}-\sqrt{5}+\sqrt{7}}=\sqrt{2}+\sqrt{3}-\sqrt{5}+\sqrt{7}$.
+
+\item $\abs{(\abs{a+b}-\abs{a}-\abs{b})}$
+
+$\abs{a+b}-\abs{a}-\abs{b}=\abs{a+b}-(\abs{a}+\abs{b})$. From the Triangle Inequality, $\abs{a+b}\leq\abs{a}+\abs{b}\then\abs{a+b}-(\abs{a}+\abs{b})\leq 0$. Since $\abs{x}=-x$ for $x\leq 0$, we can write $\abs{(\abs{a+b}-\abs{a}-\abs{b})}=-(\abs{a+b}-\abs{a}-\abs{b})=\abs{a}+\abs{b}-\abs{a+b}$.
+
+\item $\abs{(\abs{a+b}+\abs{c}-\abs{a+b+c})}$
+
+Let $d=a+b$. Then $\abs{a+b}+\abs{c}-\abs{a+b+c}=\abs{d}+\abs{c}-\abs{d+c}$. From the Triangle Inequality, $\abs{d}+\abs{c}\geq\abs{d+c}\then\abs{d}+\abs{c}-\abs{d+c}\geq 0$ so we can drop the outermost absolute value signs and write $\abs{(\abs{a+b}+\abs{c}-\abs{a+b+c})}=\abs{a+b}+\abs{c}-\abs{a+b+c}$.
+
+\item $\abs{x^2-2xy+y^2}$
+
+$x^2-2xy+y^2=(x-y)^2\then \abs{x^2-2xy+y^2}=\abs{(x-y)^2}=(x-y)^2=x^2-2xy+y^2$.
+
+\item $\abs{(\abs{\sqrt{2}+\sqrt{3}}-\abs{\sqrt{5}-\sqrt{7}})}$
+
+Since $\sqrt{2}>0$ and $\sqrt{3}>0$, $\sqrt{2}+\sqrt{3}>0$ and so $\abs{\sqrt{2}+\sqrt{3}}=\sqrt{2}+\sqrt{3}$. Since $\sqrt{5}<\sqrt{7}$, $\sqrt{5}-\sqrt{7}<0$ so $\abs{\sqrt{5}-\sqrt{7}}=-(\sqrt{5}-\sqrt{7})=\sqrt{7}-\sqrt{5}$. Then $\abs{(\abs{\sqrt{2}+\sqrt{3}}-\abs{\sqrt{5}-\sqrt{7}})}=\abs{\sqrt{2}+\sqrt{3}+\sqrt{5}-\sqrt{7}}$.
+\end{enumerate}
+
+% Problem 10
+\item Express each of the following without absolute value signs, treating various cases separately when necessary.
+\begin{enumerate}[label=(\roman*)]
+\item $\abs{a+b}-\abs{b}$
+
+Case 1: $a+b\geq 0,b\geq 0\iff b>0,a\geq -b\then \abs{a+b}=a+b, \abs{b}=b\then\abs{a+b}-\abs{b}=a+b-b=a$.\\
+Case 2: $a+b\leq 0,b\geq 0\iff b>0,a\leq -b\then \abs{a+b}=-(a+b), \abs{b}=b\then\abs{a+b}-\abs{b}=-(a+b)-b=-a-2b$.\\
+Case 3: $a+b\geq 0,b\leq 0\iff b\leq 0,a\geq -b\then \abs{a+b}=a+b,\abs{b}=-b\then\abs{a+b}-\abs{b}=a+b+b=a+2b$.\\
+Case 4: $a+b\leq 0,b\leq 0\iff b\leq 0,a\leq -b\then \abs{a+b}=-(a+b),\abs{b}=-b\then\abs{a+b}-\abs{b}=-(a+b)+b=-a$.
+
+\item $\abs{({\abs{x}-1)}}$
+
+Case 1: $x\geq 0\then \abs{x}=x\then\abs{({\abs{x}-1)}}=\abs{x-1}$. Case 1a $x-1\geq 0\iff x\geq 1\then \abs{x-1}=x-1$. Case 1b $x-1\leq 0\iff 0\leq x\leq 1\then \abs{x-1}=-(x-1)=1-x$.\\
+Case 2: $x\leq 0\then\abs{x}=-x\then\abs{({\abs{x}-1)}}=\abs{-x-1}$. Case 2a $-x-1\geq 0\iff x\leq -1\then\abs{-x-1}=-x-1$. Case 2b $-x-1\leq 0\iff 0\geq x\geq -1\then\abs{-x-1}=-(-x-1)=x+1$.
+
+Summarizing the cases: (1) $x\geq 1: x-1$, (2) $0\leq x \leq 1: 1-x$, (3) $-1\leq x \leq 0: x+1$, (4) $x\leq -1: -x-1$.
+
+\item $\abs{x}-\abs{x^{2}}$
+
+Case 1: $x\geq 0\then \abs{x}=x\then \abs{x}-\abs{x^{2}}=x-x^2$.\\
+Case 2: $x\leq 0\then \abs{x}=-x\then \abs{x}-\abs{x^{2}}=-x-x^2$.
+
+\item $a-\abs{(a-\abs{a})}$
+
+Case 1: $a\geq 0\then\abs{a}=a\then a-\abs{(a-\abs{a})}=a-\abs{a-a}=a-0=a$.\\
+Case 2: $a\leq 0\then\abs{a}=-a\then a-\abs{(a-\abs{a})}=a-\abs{a-(-a)}=a-\abs{2a}=a-(-2a)=3a$.
+\end{enumerate}
+
+% Problem 11
+\item Find all numbers $x$ for which
+\begin{enumerate}[label=(\roman*)]
+\item $\abs{x-3}=8$.
+
+$\abs{x-3}=x-3$ if $x-3>0\iff x>3$. For $x>3$, $x-3=8\then x=11$. $\abs{x-3}=-(x-3)$ for $x-3<0\iff x<3$. For $x<3$, $3-x=8\then x=-5$.
+Solution: $x=11,-5$.
+
+\item $\abs{x-3}<8$.
+
+$\abs{x-3}=x-3$ if $x-3>0\iff x>3$. For $x>3$, $x-3<8\then x<11$. $\abs{x-3}=-(x-3)$ for $x-3<0\iff x<3$. For $x<3$, $3-x<8\then x>-5$.
+Solution: $-5<x<11$.
+
+\item $\abs{x+4}<2$.
+
+$\abs{x+4}=x+4$ if $x+4>0\iff x>-4$. For $x>-4$, $x+4<2\then x<-2$. $\abs{x+4}=-(x+4)$ for $x+4<0\iff x<-4$. For $x<-4$, $-x-4<2\then x<-6$.
+Solution: $x<-6$, $-4<x<-2$.
+
+\item $\abs{x-1}+\abs{x-2}>1$.
+
+
+
+\item $\abs{x-1}+\abs{x+1}<2$.
+
+
+
+\item $\abs{x-1}+\abs{x+1}<1$.
+
+
+
+\item $\abs{x-1}\cdot\abs{x+1}=0$.
+
+
+
+\item $\abs{x-1}\cdot\abs{x+2}=3$.
+
+
+
 
 \end{enumerate}
+
 
 \end{document}
